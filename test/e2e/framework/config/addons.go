@@ -22,9 +22,6 @@ import (
 
 // Addons contains global configuration for instances of addons
 type Addons struct {
-	// Tiller describes the global configuration values for the tiller addon
-	Tiller Tiller
-
 	// Helm describes the global configuration values for helm
 	Helm Helm
 
@@ -48,7 +45,6 @@ type Addons struct {
 }
 
 func (a *Addons) AddFlags(fs *flag.FlagSet) {
-	a.Tiller.AddFlags(fs)
 	a.Helm.AddFlags(fs)
 	a.ACMEServer.AddFlags(fs)
 	a.IngressController.AddFlags(fs)
@@ -59,7 +55,6 @@ func (a *Addons) AddFlags(fs *flag.FlagSet) {
 
 func (c *Addons) Validate() []error {
 	var errs []error
-	errs = append(errs, c.Tiller.Validate()...)
 	errs = append(errs, c.Helm.Validate()...)
 	errs = append(errs, c.ACMEServer.Validate()...)
 	errs = append(errs, c.IngressController.Validate()...)
