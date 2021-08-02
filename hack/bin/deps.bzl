@@ -150,8 +150,8 @@ def install_bazel_tools():
 
 # Install Helm targets
 def install_helm():
-    ## Fetch helm & tiller for use in template generation and testing
-    ## You can bump the version of Helm & Tiller used during e2e tests by tweaking
+    ## Fetch helm for use in template generation and testing
+    ## You can bump the version of Helm used during e2e tests by tweaking
     ## the version numbers in these rules.
     http_archive(
         name = "helm_darwin",
